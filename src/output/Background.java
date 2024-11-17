@@ -2,6 +2,6 @@ package src.output;
 
 public class Background {
     public Background() {
-        System.out.println("fuuuuck");
+        // System.out.println("fuuuuck"); OKAY
     }
 }
