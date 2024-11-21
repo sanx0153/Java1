@@ -8,7 +8,9 @@ import src.output.lib.*;
 
 public class Body extends JPanel {
     private Words[] words;
-    public Body() {
+    private Ruler ruler;
+    public Body(Ruler ruler) {
+        this.ruler = ruler;
         setLayout(new BorderLayout());
         setBackground(Color.CYAN);
         setVisible(true);

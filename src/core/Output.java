@@ -1,4 +1,7 @@
 package src.core;
+import java.sql.RowId;
+
+import src.output.Ruler;
 import src.output.Window;
 
 public class Output {
