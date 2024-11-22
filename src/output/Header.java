@@ -11,8 +11,10 @@ public class Header extends JPanel {
     public Header(Ruler ruler) {
         this.ruler = ruler;
         this.setLayout(null);
-        this.setSize(this.ruler.buttonSize.width,this.ruler.buttonSize.height);
-        this.dummy = new Words(ruler);
+        this.setSize(this.ruler.windowSize.width,this.ruler.buttonSize.height);
+        this.dummy = new Words(this.ruler);
+        this.dummy.setSize(this.ruler.buttonSize);
+        setVisible(true);
         add(dummy);
     }
 }
