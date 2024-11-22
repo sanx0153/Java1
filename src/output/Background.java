@@ -8,5 +8,6 @@ public class Background extends JPanel {
     public Background(Ruler ruler) {
         // System.out.println("fuuuuck"); OKAY
         this.ruler = ruler;
+        setSize(this.ruler.windowSize.width,this.ruler.windowSize.height);
     }
 }

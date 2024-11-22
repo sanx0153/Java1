@@ -1,10 +1,12 @@
 package src;
 import src.core.*;
 public class Application {
+    static Input input;
+    static Logic logic;
+    static Output output;
     public static void main(String[] args) {
-        Input  input  = new Input();
-        Logic  logic  = new Logic();
-        Output output = new Output();
+        input  = new Input();
+        logic  = new Logic();
+        output = new Output();
     }
 }
- 

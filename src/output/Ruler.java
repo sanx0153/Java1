@@ -6,17 +6,27 @@ public class Ruler {
     private Dimension screenSize;
     public boolean isPortrait;
     public boolean isLandscape;
-    public int windowHeight;
-    public int windowWidth;
-    public int windowX;
+    public Dimension windowSize;
+    public Point windowLocation;
+    private Dimension keySize;
+    private Dimension slotSize;
+    private Dimension buttonSize;
+    
 
 
     public Ruler() {
         screenSize = Toolkit.getDefaultToolkit().getScreenSize().getSize(); // gets Dimension from the screen
         isPortrait = screenSize.width < screenSize.height; // decides orientation
         isLandscape = !isPortrait; // redundancy desired
-        windowHeight = screenSize.height; // pretty clear
-        windowWidth = windowHeight * 9 / 16; // Aspect Ratio 16:9
-        windowX = (screenSize.width - windowWidth) / 2; // Location for the X point centering the window on the screen
+        windowSize = new Dimension();
+        windowSize.height = screenSize.height; // pretty clear
+        windowSize.width = windowSize.height * 9 / 16; // Aspect Ratio 16:9
+        if (windowSize.width > screenSize.width) { // If screen is weird, fits it back
+            windowSize.width = screenSize.width;
+            windowSize.height = windowSize.width * 16 / 9;
+        } 
+        windowLocation = new Point(((screenSize.width - windowSize.width) / 2), ((screenSize.height - windowSize.height) / 2));
+        //keyWidth = ;
+        //keyHeight = ;
     }
 }

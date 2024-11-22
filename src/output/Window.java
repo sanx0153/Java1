@@ -16,10 +16,13 @@ public class Window extends JFrame {
         head = new Head(ruler);
         body = new Body(ruler);
         foot = new Foot(ruler);
-        setLocation(this.ruler.windowX, this.getLocation().y);
-        setSize(this.ruler.windowWidth, this.ruler.windowHeight);
+        setWindowSettings();
+        add(body,BorderLayout.CENTER);
+    }
+    private void setWindowSettings() {
+        setLocation(this.ruler.windowLocation.x, this.ruler.windowLocation.y);
+        setSize(this.ruler.windowSize.width, this.ruler.windowSize.height);
         setVisible(true);
         setLayout(new BorderLayout());
-        add(body,BorderLayout.CENTER);
     }
 }
