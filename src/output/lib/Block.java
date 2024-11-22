@@ -11,9 +11,9 @@ public class Block extends JPanel {
     public Block(Ruler ruler) {
         // System.out.println("block born"); OKAY
         this.ruler = ruler;
-        setSize(ruler.slotSize.width,ruler.slotSize.height);
+        setSize(this.ruler.slotSize.width,this.ruler.slotSize.height);
         setBackground(Color.GREEN);
         setBorder(BorderFactory.createSoftBevelBorder(1));
-        setVisible(false);
+        setVisible(true);
     }
 }

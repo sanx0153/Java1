@@ -17,6 +17,7 @@ public class Window extends JFrame {
         body = new Body(ruler);
         footer = new Footer(ruler);
         setWindowSettings();
+        add(header,BorderLayout.NORTH);
         add(body,BorderLayout.CENTER);
     }
     private void setWindowSettings() {
