@@ -6,16 +6,16 @@ import javax.swing.*;
 public class Window extends JFrame {
     private Ruler ruler;
     private Background BG;
-    private Head head;
+    private Header header;
     private Body body;
-    private Foot foot;
+    private Footer footer;
 
     public Window() {
         ruler = new Ruler();
         BG   = new Background(ruler);
-        head = new Head(ruler);
+        header = new Header(ruler);
         body = new Body(ruler);
-        foot = new Foot(ruler);
+        footer = new Footer(ruler);
         setWindowSettings();
         add(body,BorderLayout.CENTER);
     }

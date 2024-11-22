@@ -2,10 +2,10 @@ package src.output;
 
 import javax.swing.JPanel;
 
-public class Foot extends JPanel {
+public class Header extends JPanel {
     private Ruler ruler;
-    public Foot(Ruler ruler) {
+
+    public Header(Ruler ruler) {
         this.ruler = ruler;
-        
     }
 }
