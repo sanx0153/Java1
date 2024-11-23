@@ -17,13 +17,15 @@ public class Window extends JFrame {
         body = new Body(ruler);
         footer = new Footer(ruler);
         setWindowSettings();
-        add(header,BorderLayout.NORTH);
-        add(body,BorderLayout.CENTER);
+        add(header);
+        add(body);
+        add(footer);
     }
     private void setWindowSettings() {
         setLocation(this.ruler.windowLocation.x, this.ruler.windowLocation.y);
         setSize(this.ruler.windowSize.width, this.ruler.windowSize.height);
+        setUndecorated(true);
         setVisible(true);
-        setLayout(new BorderLayout());
+        setLayout(null);
     }
 }

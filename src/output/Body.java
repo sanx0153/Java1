@@ -15,7 +15,8 @@ public class Body extends JPanel {
         setBackground(Color.CYAN);
         setVisible(true);
         words = new Words[7];
-        setSize((5 * this.ruler.slotSize.width) + 10,2 + (this.ruler.slotSize.height * words.length));
+        setSize(this.ruler.bodySize);
+        setLocation(this.ruler.bodyPlace);
         for (int i = 0; i < words.length; i++) {
             words[i] = new Words(this.ruler);
             words[i].setLocation(words[i].getLocation().x, i * this.ruler.slotSize.height);

@@ -2,6 +2,7 @@ package src.output;
 import java.awt.*;
 
 public class Ruler {
+    private int maxHeight;
     private Dimension screenSize;
     public boolean isPortrait;
     public boolean isLandscape;
@@ -10,6 +11,12 @@ public class Ruler {
     public Dimension keySize;
     public Dimension slotSize;
     public Dimension buttonSize;
+    public Dimension headerSize;
+    public Dimension bodySize;
+    public Dimension footerSize;
+    public Point headerPlace;
+    public Point bodyPlace;
+    public Point footerPlace;
     private Dimension headerMatrix;
     private Dimension bodyMatrix;
     private Dimension footerMatrix;
@@ -32,22 +39,36 @@ public class Ruler {
         setBodySize(5, 7);
         setFooterSize(10, 3);
         calculateDimensions();
+        calculateDivisionDimensions();
+        calculatePlaces();
         //keyWidth = ;
         //keyHeight = ;
     }
-    public void calculateDimensions() {
+    private void calculateDimensions() {
         int headerMaxWidth = windowSize.width / headerMatrix.width;
         int bodyMaxWidth = windowSize.width / bodyMatrix.width;
         int footerMaxWidth = windowSize.width / footerMatrix.width;
-        int maxHeight = windowSize.height / (headerMatrix.height + bodyMatrix.height + footerMatrix.height);
+        maxHeight = windowSize.height / (headerMatrix.height + bodyMatrix.height + footerMatrix.height);
         int keySide = Math.min(footerMaxWidth, maxHeight);
         int slotSide = Math.min(bodyMaxWidth, maxHeight);
         int buttonSide = Math.min(headerMaxWidth, maxHeight);
         keySize = new Dimension(keySide,keySide);
         slotSize = new Dimension(slotSide,slotSide);
         buttonSize = new Dimension(buttonSide,buttonSide);
-
     }
+
+    private void calculateDivisionDimensions() {
+        headerSize = new Dimension(windowSize.width,maxHeight * headerMatrix.height);
+        bodySize = new Dimension(windowSize.width,slotSize.height * bodyMatrix.height);
+        footerSize = new Dimension(windowSize.width,keySize.height * footerMatrix.height);
+    }
+
+    private void calculatePlaces() {
+        bodyPlace = new Point(0,maxHeight * bodyMatrix.height / 2);
+        headerPlace = new Point(0,(bodyPlace.y - headerSize.height) / 2);
+        footerPlace = new Point(0,windowSize.height - (windowSize.height - (bodyPlace.y + bodySize.height + footerSize.height)));
+    }
+
     public void setHeaderSize(int columns, int lines) {
         headerMatrix = new Dimension(columns,lines);
     }
