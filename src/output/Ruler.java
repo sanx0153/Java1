@@ -2,6 +2,7 @@ package src.output;
 import java.awt.*;
 
 public class Ruler {
+    private static Ruler instance;
     private int maxHeight;
     private Dimension screenSize;
     public boolean isPortrait;
@@ -23,7 +24,7 @@ public class Ruler {
 
 
 
-    public Ruler() {
+    private Ruler() {
         screenSize = Toolkit.getDefaultToolkit().getScreenSize().getSize(); // gets Dimension from the screen
         isPortrait = screenSize.width < screenSize.height; // decides orientation
         isLandscape = !isPortrait; // redundancy desired
@@ -58,15 +59,23 @@ public class Ruler {
     }
 
     private void calculateDivisionDimensions() {
-        headerSize = new Dimension(windowSize.width,maxHeight * headerMatrix.height);
-        bodySize = new Dimension(windowSize.width,slotSize.height * bodyMatrix.height);
-        footerSize = new Dimension(windowSize.width,keySize.height * footerMatrix.height);
+        headerSize = new Dimension(buttonSize.width * headerMatrix.width,buttonSize.height * headerMatrix.height);
+        bodySize = new Dimension(slotSize.width * bodyMatrix.width,slotSize.height * bodyMatrix.height);
+        footerSize = new Dimension(keySize.width * footerMatrix.width,keySize.height * footerMatrix.height);
     }
 
     private void calculatePlaces() {
-        bodyPlace = new Point(0,maxHeight * bodyMatrix.height / 2);
-        headerPlace = new Point(0,(bodyPlace.y - headerSize.height) / 2);
-        footerPlace = new Point(0,windowSize.height - (windowSize.height - (bodyPlace.y + bodySize.height + footerSize.height)));
+        bodyPlace = new Point((windowSize.width - bodySize.width) / 2,(windowSize.height - bodySize.height) / 2);
+        headerPlace = new Point((windowSize.width - headerSize.width) / 2,(bodyPlace.y - headerSize.height) / 2);
+        int bodyFoot = (bodyPlace.y + bodySize.height);
+        footerPlace = new Point((windowSize.width - footerSize.width) / 2,(bodyFoot + ((windowSize.height - bodyFoot - footerSize.height) / 2)));
+    }
+
+    public static Ruler getInstance() {
+        if (instance == null) {
+            instance = new Ruler();
+        }
+        return instance;
     }
 
     public void setHeaderSize(int columns, int lines) {

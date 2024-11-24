@@ -8,15 +8,15 @@ import src.output.*;
 public class Words extends JPanel {
     private Block[] letters;
     private Ruler ruler;
-    public Words(Ruler ruler) {
+    public Words() {
         // System.out.println("word born"); TEST OK
-        this.ruler = ruler;
+        this.ruler = Ruler.getInstance();
         setLayout(null);
         setBorder(BorderFactory.createLineBorder(Color.BLACK));
         setVisible(true);
         letters = new Block[5];
         for (int i = 0; i < letters.length; i++) {
-            letters[i] = new Block(ruler);
+            letters[i] = new Block();
             letters[i].setLocation(1 + (i * this.ruler.slotSize.width), 1);
             add(letters[i]);
         }
