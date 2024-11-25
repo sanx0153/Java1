@@ -1,21 +1,28 @@
 package src.output;
 
+import src.output.lib.*;
+
+import java.rmi.dgc.VMID;
+
 import javax.swing.JPanel;
 
-import src.output.lib.Words;
 
 public class Header extends JPanel {
     private Ruler ruler;
-    private Words dummy;
+    private Button[] dummy;
 
     public Header() {
         ruler = Ruler.getInstance();
         setLayout(null);
-        setSize(ruler.windowSize.width * 2,ruler.buttonSize.height);
+        setSize(ruler.headerSize.width + 4,ruler.headerSize.height + 2);
         setLocation(ruler.headerPlace);
-        dummy = new Words();
-        dummy.setSize(ruler.buttonSize);
+        dummy = new Button[2];
+        for (int i = 0; i < dummy.length; i++) {
+            dummy[i] = new Button();
+            dummy[i].setSize(ruler.buttonSize.width, ruler.buttonSize.height);
+            dummy[i].setLocation(1 + i * ruler.buttonSide * 2, 1);
+            add(dummy[i]);
+        }
         setVisible(true);
-        add(dummy);
     }
 }

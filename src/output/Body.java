@@ -19,7 +19,7 @@ public class Body extends JPanel {
         setLocation(this.ruler.bodyPlace);
         for (int i = 0; i < words.length; i++) {
             words[i] = new Words();
-            words[i].setLocation(0, i * this.ruler.slotSize.height);
+            words[i].setLocation(0, i * this.ruler.slotSide);
             add(words[i]);
         }
     }

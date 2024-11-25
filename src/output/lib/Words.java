@@ -17,9 +17,9 @@ public class Words extends JPanel {
         letters = new Block[5];
         for (int i = 0; i < letters.length; i++) {
             letters[i] = new Block();
-            letters[i].setLocation(1 + (i * this.ruler.slotSize.width), 1);
+            letters[i].setLocation(1 + (i * this.ruler.slotSide), 1);
             add(letters[i]);
         }
-        setSize((letters.length * this.ruler.slotSize.width) + 1,this.ruler.slotSize.height);
+        setSize((letters.length * this.ruler.slotSide) + 2,this.ruler.slotSide + 2);
     }
 }

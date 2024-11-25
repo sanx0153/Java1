@@ -13,6 +13,6 @@ public class Background extends JPanel {
         setSize(ruler.windowSize.width,ruler.windowSize.height);
         setBackground(Color.DARK_GRAY);
         setLocation(0, 0);
-        setVisible(false);
+        setVisible(true);
     }
 }

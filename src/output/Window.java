@@ -23,10 +23,10 @@ public class Window extends JFrame {
         mainPanel = new JLayeredPane();
         mainPanel.setSize(ruler.windowSize);
         //mainPanel.setLayout();
-        mainPanel.add(BG,3);
-        mainPanel.add(header,2);
-        mainPanel.add(body,2);
-        mainPanel.add(footer,2);
+        mainPanel.add(BG,Integer.valueOf(1));
+        mainPanel.add(header,Integer.valueOf(2));
+        mainPanel.add(body, Integer.valueOf(2));
+        mainPanel.add(footer, Integer.valueOf(2));
         mainPanel.setVisible(true);
         add(mainPanel);
     }

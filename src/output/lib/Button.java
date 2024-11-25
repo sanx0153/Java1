@@ -2,8 +2,14 @@ package src.output.lib;
 
 import javax.swing.JButton;
 
-abstract class Button extends JButton {
+import src.output.Ruler;
+
+public class Button extends JButton {
+    private Ruler ruler;
+
     public Button() {
-        
+        ruler = Ruler.getInstance();
+        setSize(ruler.buttonSize);
+        setVisible(true);
     }
 }

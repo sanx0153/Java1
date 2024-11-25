@@ -12,6 +12,9 @@ public class Ruler {
     public Dimension keySize;
     public Dimension slotSize;
     public Dimension buttonSize;
+    public int keySide;
+    public int slotSide;
+    public int buttonSide;
     public Dimension headerSize;
     public Dimension bodySize;
     public Dimension footerSize;
@@ -50,18 +53,18 @@ public class Ruler {
         int bodyMaxWidth = windowSize.width / bodyMatrix.width;
         int footerMaxWidth = windowSize.width / footerMatrix.width;
         maxHeight = windowSize.height / (headerMatrix.height + bodyMatrix.height + footerMatrix.height);
-        int keySide = Math.min(footerMaxWidth, maxHeight);
-        int slotSide = Math.min(bodyMaxWidth, maxHeight);
-        int buttonSide = Math.min(headerMaxWidth, maxHeight);
-        keySize = new Dimension(keySide,keySide);
-        slotSize = new Dimension(slotSide,slotSide);
-        buttonSize = new Dimension(buttonSide,buttonSide);
+        keySide = Math.min(footerMaxWidth, maxHeight);
+        slotSide = Math.min(bodyMaxWidth, maxHeight);
+        buttonSide = Math.min(headerMaxWidth, maxHeight);
+        keySize = new Dimension(keySide - 2,keySide - 2);
+        slotSize = new Dimension(slotSide - 2,slotSide - 2);
+        buttonSize = new Dimension(buttonSide * 2 - 2,buttonSide - 2);
     }
 
     private void calculateDivisionDimensions() {
-        headerSize = new Dimension(buttonSize.width * headerMatrix.width,buttonSize.height * headerMatrix.height);
-        bodySize = new Dimension(slotSize.width * bodyMatrix.width,slotSize.height * bodyMatrix.height);
-        footerSize = new Dimension(keySize.width * footerMatrix.width,keySize.height * footerMatrix.height);
+        headerSize = new Dimension(buttonSide * 2 * headerMatrix.width,buttonSide * headerMatrix.height);
+        bodySize = new Dimension(slotSide * bodyMatrix.width,slotSide * bodyMatrix.height);
+        footerSize = new Dimension(keySide * footerMatrix.width,keySide * footerMatrix.height);
     }
 
     private void calculatePlaces() {
