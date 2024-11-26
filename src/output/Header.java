@@ -2,7 +2,6 @@ package src.output;
 
 import src.output.lib.*;
 
-import java.rmi.dgc.VMID;
 
 import javax.swing.JPanel;
 

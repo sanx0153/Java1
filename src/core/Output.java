@@ -7,4 +7,7 @@ public class Output {
     public Output() {
         window = new Window();
     }
+    public void Update() {
+        window.Update();
+    }
 }
