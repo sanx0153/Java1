@@ -58,12 +58,8 @@ public class Key {
         mainPanel.setVisible(true);
     }
 
-    public JLabel getLabel() {
-        return getLabel();
-    }
-    
     public void setText(String text) {
-        getLabel().setText(text);
+        label.setText(text);
     }
     public void setVisible(boolean value) {
         mainPanel.setVisible(value);
