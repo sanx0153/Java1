@@ -39,7 +39,7 @@ public class Footer extends JLayeredPane {
     //PRIVATE METHODS
 
     public String getKeyNameAString(int i, int j) {
-        return String.valueOf(KeyNameMatrix[i][j]);
+        return String.valueOf(KeyNameMatrix[i][j]); // ver depois como formatar pra maiusculo
     }
 
     private void createBackground() {

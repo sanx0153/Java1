@@ -31,7 +31,6 @@ public class Key {
     public void createBackground() {
         BG = new JPanel();
         BG.setSize(ruler.keySize.width - 4, ruler.keySize.height - 4);
-        BG.setBackground(Color.cyan);
         setVisible(true);
         mainPanel.add(BG,cons.getLayerNumberObject(1));
     }
@@ -57,9 +56,20 @@ public class Key {
         mainPanel.setSize(ruler.keySize.width,ruler.keySize.height);
         mainPanel.setVisible(true);
     }
-
+    public void paintGreen() {
+        setSkin(Color.GREEN);
+    }
+    public void paintRed() {
+        setSkin(Color.RED);
+    }
+    public void paintYellow() {
+        setSkin(Color.YELLOW);
+    }
     public void setText(String text) {
         label.setText(text);
+    }
+    private void setSkin(Color color) {
+        BG.setBackground(color);
     }
     public void setVisible(boolean value) {
         mainPanel.setVisible(value);
