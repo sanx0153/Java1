@@ -1,3 +1,4 @@
+
 package src.output;
 
 import java.awt.Color;

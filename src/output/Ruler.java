@@ -24,7 +24,7 @@ public class Ruler {
     private Dimension headerMatrix;
     private Dimension bodyMatrix;
     private Dimension footerMatrix;
-
+public Dimension Sizes;
 
 
     private Ruler() {
@@ -91,4 +91,7 @@ public class Ruler {
         footerMatrix = new Dimension(columns,lines);
     }
 
+    public Dimension getSize(String who) {
+        return Sizes.who;
+    }
 }

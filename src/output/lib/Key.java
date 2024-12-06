@@ -23,6 +23,7 @@ public class Key {
 
     public Key() {
         ruler = Ruler.getInstance();
+        
         createMainPanel();
         createBackground();
         createLabel();
@@ -35,7 +36,7 @@ public class Key {
         mainPanel.add(BG,cons.getLayerNumberObject(1));
     }
 
-    public void createLabel() {
+    private void createLabel() {
         label = new JLabel();
         int screenResolution = (int) Toolkit.getDefaultToolkit().getScreenResolution();
         int fontSize = (int) (ruler.keySize.height * 0.85 * 72 / screenResolution);
@@ -71,9 +72,14 @@ public class Key {
     private void setSkin(Color color) {
         BG.setBackground(color);
     }
-    public void setVisible(boolean value) {
+    private void setVisible(boolean value) {
         mainPanel.setVisible(value);
     }
+
+    public void show() {
+        mainPanel.setVisible(true);
+    }
+
     public void setLocation(int x, int y) {
         mainPanel.setLocation(x, y);
     }

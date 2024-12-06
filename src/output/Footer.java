@@ -30,7 +30,8 @@ public class Footer extends JLayeredPane {
                 board[i][j] = new Key();
                 board[i][j].setLocation(j * ruler.keySide, i * ruler.keySide);
                 board[i][j].setText(getKeyNameAString(i,j));
-                board[i][j].setVisible(true);
+                board[i][j].show();
+                // board[i][j].paintRed(); all paints work
                 add(board[i][j].mainPanel,1);
             }
         }
